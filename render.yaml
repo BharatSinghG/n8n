@@ -1,7 +1,27 @@
 services:
   - type: web
+    name: n8n-service
     plan: free
     runtime: image
-    name: n8n-service
     image:
       url: docker.io/n8nio/n8n:latest
+    envVars:
+      - key: N8N_PORT
+        value: 5678
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: "admin"
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: "yourpassword"
+      - key: N8N_ENCRYPTION_KEY
+        value: "your_random_encryption_key"
+      - key: WEBHOOK_URL
+        value: "https://n8n-service.onrender.com/"
+      - key: GENERIC_TIMEZONE
+        value: "Asia/Kolkata"
+    disk:
+      name: n8n-data
+      mountPath: /home/node/.n8n
+      sizeGB: 1
+
