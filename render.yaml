@@ -17,7 +17,7 @@ services:
       - key: N8N_ENCRYPTION_KEY
         value: "your_random_encryption_key"
       - key: WEBHOOK_URL
-        value: "https://n8n-service.onrender.com/"
+        value: "https://n8n-service-veym.onrender.com/"
       - key: GENERIC_TIMEZONE
         value: "Asia/Kolkata"
     disk:
