@@ -26,6 +26,25 @@ services:
         value: "Asia/Kolkata"
       - key: NODE_ENV
         value: "production"
+      # --- Supabase Postgres configuration ---
+      - key: DB_TYPE
+        value: "postgresdb"
+      - key: DB_POSTGRESDB_HOST
+        value: "db.iseenewzlgwrgqahepcv.supabase.co"
+      - key: DB_POSTGRESDB_PORT
+        value: "5432"
+      - key: DB_POSTGRESDB_DATABASE
+        value: "postgres"
+      - key: DB_POSTGRESDB_USER
+        value: "postgres"
+      - key: DB_POSTGRESDB_PASSWORD
+        value: "Test12345"
+      - key: DB_POSTGRESDB_SSL
+        value: "true"
+      - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
+        value: "false"
+      - key: EXECUTIONS_MODE
+        value: "regular"
     disk:
       name: n8n-data
       mountPath: /home/node/.n8n
