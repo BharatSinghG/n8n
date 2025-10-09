@@ -6,6 +6,7 @@ services:
     image:
       url: docker.io/n8nio/n8n:latest
     envVars:
+      # n8n web settings
       - key: N8N_PORT
         value: "$PORT"
       - key: N8N_PROTOCOL
@@ -14,37 +15,51 @@ services:
         value: "n8n-service-veym.onrender.com"
       - key: WEBHOOK_URL
         value: "https://n8n-service-veym.onrender.com/"
+
+      # Basic Auth
       - key: N8N_BASIC_AUTH_ACTIVE
         value: "true"
       - key: N8N_BASIC_AUTH_USER
         value: "admin"
       - key: N8N_BASIC_AUTH_PASSWORD
         value: "yourpassword"
+
+      # Encryption key
       - key: N8N_ENCRYPTION_KEY
         value: "your_random_encryption_key"
+
+      # Timezone & environment
       - key: GENERIC_TIMEZONE
         value: "Asia/Kolkata"
       - key: NODE_ENV
         value: "production"
-      # --- Supabase Postgres configuration ---
+
+      # --- Supabase Postgres database configuration ---
       - key: DB_TYPE
         value: "postgresdb"
       - key: DB_POSTGRESDB_HOST
-        value: "db.iseenewzlgwrgqahepcv.supabase.co"
+        value: "aws-1-us-east-1.pooler.supabase.com"
       - key: DB_POSTGRESDB_PORT
-        value: "5432"
+        value: "6543"
       - key: DB_POSTGRESDB_DATABASE
         value: "postgres"
       - key: DB_POSTGRESDB_USER
-        value: "postgres"
+        value: "postgres.iseenewzlgwrgqahepcv"
       - key: DB_POSTGRESDB_PASSWORD
         value: "Test12345"
       - key: DB_POSTGRESDB_SSL
         value: "true"
       - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
         value: "false"
+
+      # Optional: enforce settings file permissions
+      - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
+        value: "false"
+
+      # Execution mode
       - key: EXECUTIONS_MODE
         value: "regular"
+
     disk:
       name: n8n-data
       mountPath: /home/node/.n8n
