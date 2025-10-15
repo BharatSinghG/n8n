@@ -12,9 +12,9 @@ services:
       - key: N8N_PROTOCOL
         value: "https"
       - key: N8N_HOST
-        value: "n8n-service-veym.onrender.com"
+        value: "n8n-service-fnon.onrender.com"
       - key: WEBHOOK_URL
-        value: "https://n8n-service-veym.onrender.com/"
+        value: "https://n8n-service-fnon.onrender.com/"
 
       # Basic Auth
       - key: N8N_BASIC_AUTH_ACTIVE
